@@ -11,7 +11,7 @@ export default class SongList extends Component {
               <th>Song Name</th>
               <th>Album Name</th>
               <th>Popularity</th>
-              <th>Preview</th>
+              <th>Sample</th>
             </tr>
           </thead>
           <Song />
