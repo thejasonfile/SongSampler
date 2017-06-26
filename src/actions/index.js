@@ -17,11 +17,20 @@ export const fetchSongs = (artistName) => {
     json: true
   };
 
-  axios.post(authOptions, (error, response, body) => {
-    if (!error && response.statusCode === 200) {
-      console.log('it worked', body);
-    }
+  axios.post(authOptions.url, { authOptions })
+  .then((response) => {
+    console.log(response);
+  })
+  .catch((err) => {
+    console.log(err);
   });
+
+  return (dispatch) => {
+    dispatch({
+      type: 'FETCH_SONGS',
+      payload: data
+    })
+  }
 
   // const nameRequest = axios.get(artistNameUrl);
   //
