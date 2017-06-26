@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 class Song extends Component {
   render() {
@@ -25,7 +24,6 @@ class Song extends Component {
     const songURL = songData.external_urls.spotify;
 
     return(
-      <ReactCSSTransitionGroup {...transitionOptions}>
         <tr key={songPreview}>
           <td><a href={songURL} target="_blank">{songName}</a></td>
           <td>{albumName}</td>
@@ -36,7 +34,6 @@ class Song extends Component {
             </audio>
           </td>
         </tr>
-      </ReactCSSTransitionGroup>
     )
   }
 }

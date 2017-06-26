@@ -23690,6 +23690,12 @@
 	  }, {
 	    key: 'renderSong',
 	    value: function renderSong(songData) {
+	      var transitionOptions = {
+	        transitionName: "fade",
+	        transitionEnterTimeout: 500,
+	        transitionLeaveTimeout: 500
+	      };
+
 	      var songName = songData.name;
 	      var albumName = songData.album.name;
 	      var popularity = songData.popularity;

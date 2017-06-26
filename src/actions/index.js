@@ -1,17 +1,17 @@
 import axios from 'axios';
 
-export const fetchSongs = (artist_name) => {
-  let url = `https://api.spotify.com/v1/search?q=${artist_name}&type=artist`;
-  let request = axios.get(url);
+export const fetchSongs = (artistName) => {
+  const artistNameUrl = `https://api.spotify.com/v1/search?q=${artistName}&type=artist`;
+  const nameRequest = axios.get(artistNameUrl);
 
   return (dispatch) => {
-    request.then(({data}) => {
-      let artistId = data.artists.items[0].id;
-      let url = `https://api.spotify.com/v1/artists/${artistId}/top-tracks?country=ES`;
-      let request = axios.get(url);
+    nameRequest.then(({ data }) => {
+      const artistId = data.artists.items[0].id;
+      const artistIdUrl = `https://api.spotify.com/v1/artists/${artistId}/top-tracks?country=ES`;
+      const IdRequest = axios.get(artistIdUrl);
 
-      request.then(({data}) => {
-        dispatch ({
+      IdRequest.then(({ data }) => {
+        dispatch({
           type: 'FETCH_SONGS',
           payload: data
         });

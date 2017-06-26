@@ -5,7 +5,8 @@
   "main": "index.js",
   "repository": "git@github.com:thejasonfile/SongSampler.git",
   "scripts": {
-    "start": "node ./node_modules/webpack/bin/webpack.js",
+    "start": "webpack-dev-server --open",
+    "start2": "node ./node_modules/webpack/bin/webpack.js",
     "test": "mocha --compilers js:babel-core/register --require ./test/test_helper.js --recursive ./test",
     "test:watch": "npm run test -- --watch"
   },
