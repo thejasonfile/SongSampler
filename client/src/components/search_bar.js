@@ -1,10 +1,19 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-import {fetchSongs} from '../actions/index';
-import {setTerm} from '../actions/index';
+import { fetchSongs, setTerm } from '../actions/index';
 
 class SearchBar extends Component {
+
+  onInputChange(event) {
+    this.props.setTerm(event.target.value);
+  }
+
+  onFormSubmit(event) {
+    event.preventDefault();
+    this.props.fetchSongs(this.props.term);
+  }
+
   render() {
     return (
       <div>
@@ -16,27 +25,18 @@ class SearchBar extends Component {
               className="form-control"
               onChange={this.onInputChange.bind(this)}
               id="artist-search"
-              placeholder="Search for an artist">
-            </input>
+              placeholder="Search for an artist"
+            />
             <button className="btn btn-default" type="submit">Search</button>
           </div>
         </form>
       </div>
-    )
-  }
-
-  onInputChange(event){
-    this.props.setTerm(event.target.value);
-  }
-
-  onFormSubmit(event) {
-    event.preventDefault();
-    this.props.fetchSongs(this.props.term);
+    );
   }
 }
 
 function mapStateToProps(state) {
-  return {term: state.term}
+  return { term: state.term };
 }
 
-export default connect(mapStateToProps, {fetchSongs, setTerm})(SearchBar);
+export default connect(mapStateToProps, { fetchSongs, setTerm })(SearchBar);

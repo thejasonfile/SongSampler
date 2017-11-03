@@ -9,7 +9,7 @@
   "scripts": {
     "start": "node index.js"
   },
-  "repository": "ssh://git@bitbucket.org/thejasonfile/songsampler.git",
+  "repository": "git@github.com:thejasonfile/songSampler.git",
   "author": "<jason.arnold.00@gmail.com>",
   "license": "MIT",
   "dependencies": {
