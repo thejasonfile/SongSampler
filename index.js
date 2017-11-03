@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const passport = require('passport');
+const path = require('path');
 
 const keys = require('./keys');
 
@@ -12,6 +13,7 @@ const app = express();
 
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(express.static('client/public'));
 
 require('./routes/authRoutes')(app);
 
