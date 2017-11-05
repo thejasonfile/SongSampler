@@ -1,7 +1,7 @@
 const passport = require('passport');
 const SpotifyStrategy = require('passport-spotify').Strategy;
 const mongoose = require('mongoose');
-const keys = require('../keys');
+const keys = require('../config/keys');
 
 const User = mongoose.model('users');
 
@@ -25,9 +25,11 @@ passport.use(new SpotifyStrategy(
     const existingUser = await User.findOne({ spotifyId: profile.id });
 
     if (existingUser) {
+      console.log('token', accessToken);
       return done(null, existingUser);
     }
 
+    console.log('token', accessToken);
     const user = await new User({ spotifyId: profile.id }).save();
     done(null, user);
   }

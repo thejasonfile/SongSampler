@@ -1,6 +1,0 @@
-{
-  "extends": "rallycoding",
-  "rules": {
-    "no-unused-expressions": 0
-    }
-}
