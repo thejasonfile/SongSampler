@@ -25,6 +25,7 @@ app.use(passport.session());
 app.use(express.static('client/public'));
 
 require('./routes/authRoutes')(app);
+require('./routes/apiRoutes')(app);
 
 mongoose.connect(keys.mongoURI, { useMongoClient: true });
 
