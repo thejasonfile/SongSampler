@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 import { setTerm, fetchSongs } from '../actions/index';
 
 class SearchBar extends Component {
-
   onInputChange(event) {
     this.props.setTerm(event.target.value);
   }

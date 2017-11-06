@@ -6,6 +6,14 @@ export const fetchSongs = artistName => async dispatch => {
   dispatch({ type: 'FETCH_SONGS', payload: songs.data })
 };
 
+export const removeSongs = () => {
+  console.log('removeSongs called');
+  return {
+    type: 'REMOVE_SONGS',
+    payload: []
+  }
+}
+
 export const setTerm = term => {
   return {
     type: 'SET_TERM',
