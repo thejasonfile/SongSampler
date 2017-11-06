@@ -1,9 +1,13 @@
 import axios from 'axios';
 
 export const fetchSongs = artistName => async dispatch => {
-  const songs = await axios.post('/api/spotify/artist', {artistName})
+  if (!artistName) {
+    dispatch({ type: 'NO_ARTIST', payload: 'Please select an artist'})
+  } else {
+    const songs = await axios.post('/api/spotify/artist', {artistName})
 
-  dispatch({ type: 'FETCH_SONGS', payload: songs.data })
+    dispatch({ type: 'FETCH_SONGS', payload: songs.data })
+  }
 };
 
 export const setTerm = (term) => {

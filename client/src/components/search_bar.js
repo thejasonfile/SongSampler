@@ -24,7 +24,7 @@ class SearchBar extends Component {
               placeholder="Search for an artist"
             />
             <Link
-              to="/search/results"
+              to={this.props.term ? '/search/results' : '/search/noartist'}
             >
             <button className="btn btn-default">Search</button>
           </Link>

@@ -46,7 +46,7 @@ class Song extends Component {
 }
 
 function mapStateToProps(state){
-  return {songs: state.songs};
+  return {songs: state.songs, artist: state.artist};
 }
 
 export default connect(mapStateToProps)(Song);
