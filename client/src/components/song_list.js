@@ -7,10 +7,10 @@ const SongList = () => {
       <table className='table'>
         <thead>
           <tr>
-            <th>Song Name</th>
-            <th>Album Name</th>
-            <th>Popularity</th>
-            <th>Sample</th>
+            <th className="table-header">Song Name</th>
+            <th className="table-header">Album Name</th>
+            <th className="table-header">Popularity</th>
+            <th className="table-header">Sample</th>
           </tr>
         </thead>
         <Song />

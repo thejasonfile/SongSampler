@@ -23,9 +23,9 @@ class Song extends Component {
 
     return(
         <tr key={songPreview}>
-          <td><a href={songURL} target="_blank">{songName}</a></td>
-          <td>{albumName}</td>
-          <td>{popularity}</td>
+          <td className="table-data"><a href={songURL} target="_blank">{songName}</a></td>
+          <td className="table-data">{albumName}</td>
+          <td className="table-data">{popularity}</td>
           <td>
             <audio controls name="media">
               <source src={songPreview} type="audio/mpeg"></source>
