@@ -6,11 +6,15 @@ class Song extends Component {
     console.log(this.props);
   }
   render() {
-    return (
+    if(this.props.songs.length === 0) {
+      return (<tbody><tr><td>Searching...</td></tr></tbody>)
+    } else {
+      return (
         <tbody>
           {this.props.songs.map(this.renderSong)}
         </tbody>
-    )
+      )
+    }
   }
 
   renderSong(songData){
