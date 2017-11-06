@@ -2,12 +2,19 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import { setTerm } from '../actions/index';
+import { setTerm, fetchSongs } from '../actions/index';
 
 class SearchBar extends Component {
 
   onInputChange(event) {
     this.props.setTerm(event.target.value);
+  }
+
+  onButtonClick(e) {
+    //e.preventDefault()
+    if(this.props.term){
+      this.props.fetchSongs(this.props.term);
+    }
   }
 
   render() {
@@ -23,11 +30,16 @@ class SearchBar extends Component {
               id="artist-search"
               placeholder="Search for an artist"
             />
-            <Link
-              to={this.props.term ? '/search/results' : '/search/noartist'}
-            >
-            <button className="btn btn-default">Search</button>
-          </Link>
+              <Link to={this.props.term ? '/search/results' : '/search/noartist'}>
+              <button
+                type="submit"
+                className="btn btn-default"
+                value={this.props.term}
+                onClick={this.onButtonClick.bind(this)}
+              >
+              Search
+              </button>
+              </Link>
           </div>
         </form>
       </div>
@@ -39,4 +51,4 @@ function mapStateToProps(state) {
   return { term: state.term };
 }
 
-export default connect(mapStateToProps, { setTerm })(SearchBar);
+export default connect(mapStateToProps, { setTerm, fetchSongs })(SearchBar);
