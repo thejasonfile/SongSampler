@@ -11,11 +11,11 @@ class Song extends Component {
   }
 
   renderSong(songData){
-    const transitionOptions = {
-      transitionName: "fade",
-      transitionEnterTimeout: 500,
-      transitionLeaveTimeout: 500
-    }
+    // const transitionOptions = {
+    //   transitionName: "fade",
+    //   transitionEnterTimeout: 500,
+    //   transitionLeaveTimeout: 500
+    // }
 
     const songName = songData.name;
     const albumName = songData.album.name;

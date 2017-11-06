@@ -1,4 +1,6 @@
 const passport = require('passport');
+const axios = require('axios');
+const request = require('request');
 
 module.exports = app => {
   app.get(
@@ -12,6 +14,24 @@ module.exports = app => {
       res.redirect('/search')
     }
   );
+
+  app.post('/api/spotify/artist', async (req, res) => {
+    const access_token = req.user.spotifyToken;
+    const artistName = req.body.artistName;
+
+    //get artist ID
+    var url = `https://api.spotify.com/v1/search?q=${artistName}&type=artist`;
+    var spotifyResponse = await axios.get(url, { headers: { Authorization: 'Bearer ' + access_token }});
+    const artistId = spotifyResponse.data.artists.items[0].id;
+
+    //get artist's top top tracks
+    var url = `https://api.spotify.com/v1/artists/${artistId}/top-tracks?country=US`;
+    var spotifyResponse = await axios.get(url, { headers: { Authorization: 'Bearer ' + access_token }});
+    const artistTracks = spotifyResponse.data.tracks;
+
+    //return data to front end
+    res.send(artistTracks);
+  });
 
   app.get('/api/logout', (req, res) => {
     req.logout();

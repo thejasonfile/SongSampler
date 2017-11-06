@@ -25,12 +25,12 @@ passport.use(new SpotifyStrategy(
     const existingUser = await User.findOne({ spotifyId: profile.id });
 
     if (existingUser) {
-      console.log('token', accessToken);
+      existingUser.spotifyToken = accessToken
+      existingUser.save();
       return done(null, existingUser);
     }
 
-    console.log('token', accessToken);
-    const user = await new User({ spotifyId: profile.id }).save();
+    const user = await new User({ spotifyId: profile.id, spotifyToken: accessToken }).save();
     done(null, user);
   }
 ));
