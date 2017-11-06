@@ -6,9 +6,16 @@ export const fetchSongs = artistName => async dispatch => {
   dispatch({ type: 'FETCH_SONGS', payload: songs.data })
 };
 
-export const setTerm = (term) => {
+export const setTerm = term => {
   return {
     type: 'SET_TERM',
     payload: term
   };
 };
+
+export const setArtistValue = value => {
+  return {
+    type: 'SET_ARTIST_VALUE',
+    payload: value
+  }
+}

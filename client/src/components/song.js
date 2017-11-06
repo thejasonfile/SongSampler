@@ -2,9 +2,6 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
 class Song extends Component {
-  componentWillMount(){
-    console.log(this.props);
-  }
   render() {
     if(this.props.songs.length === 0) {
       return (<tbody><tr><td>Searching...</td></tr></tbody>)
@@ -17,13 +14,7 @@ class Song extends Component {
     }
   }
 
-  renderSong(songData){
-    // const transitionOptions = {
-    //   transitionName: "fade",
-    //   transitionEnterTimeout: 500,
-    //   transitionLeaveTimeout: 500
-    // }
-
+  renderSong(songData) {
     const songName = songData.name;
     const albumName = songData.album.name;
     const popularity = songData.popularity;
