@@ -1,7 +1,7 @@
 export default function(songs = [], action){
   switch(action.type){
     case 'FETCH_SONGS':
-      return action.payload.tracks.map(song => {return song});
+      return action.payload.map(song => song);
     default:
       return songs;
   }

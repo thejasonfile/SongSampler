@@ -13,7 +13,7 @@ export default class App extends Component {
           <div>
             <Route exact path="/" component={Landing} />
             <Route path="/search" component={SearchBar} />
-            <Route path="/search/results" component={SongList} />
+            <Route path="/search" component={SongList} />
           </div>
         </BrowserRouter>
       </div>
