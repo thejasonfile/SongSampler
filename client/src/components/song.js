@@ -2,6 +2,9 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
 class Song extends Component {
+  componentWillMount(){
+    console.log(this.props);
+  }
   render() {
     return (
         <tbody>

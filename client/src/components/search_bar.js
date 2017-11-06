@@ -12,6 +12,7 @@ class SearchBar extends Component {
   onFormSubmit(event) {
     event.preventDefault();
     this.props.fetchSongs(this.props.term);
+    //window.location.replace('/search/results');
   }
 
   render() {
