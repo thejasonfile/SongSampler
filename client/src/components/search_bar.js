@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
-import { fetchSongs, setTerm } from '../actions/index';
+import { setTerm } from '../actions/index';
 
 class SearchBar extends Component {
 
@@ -9,16 +10,10 @@ class SearchBar extends Component {
     this.props.setTerm(event.target.value);
   }
 
-  onFormSubmit(event) {
-    event.preventDefault();
-    this.props.fetchSongs(this.props.term);
-    //window.location.replace('/search/results');
-  }
-
   render() {
     return (
       <div>
-        <form className="form-inline" onSubmit={this.onFormSubmit.bind(this)}>
+        <form className="form-inline">
           <div className="form-group">
             <label htmlFor="artist-search">Artist:</label>
             <input
@@ -28,7 +23,11 @@ class SearchBar extends Component {
               id="artist-search"
               placeholder="Search for an artist"
             />
-            <button className="btn btn-default" type="submit">Search</button>
+            <Link
+              to="/search/results"
+            >
+            <button className="btn btn-default">Search</button>
+          </Link>
           </div>
         </form>
       </div>
@@ -40,4 +39,4 @@ function mapStateToProps(state) {
   return { term: state.term };
 }
 
-export default connect(mapStateToProps, { fetchSongs, setTerm })(SearchBar);
+export default connect(mapStateToProps, { setTerm })(SearchBar);

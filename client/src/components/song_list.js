@@ -1,7 +1,13 @@
 import React, {Component} from 'react';
+import { connect } from 'react-redux';
+import { fetchSongs } from '../actions/index'
 import Song from './song';
 
-export default class SongList extends Component {
+class SongList extends Component {
+  componentDidMount() {
+    this.props.fetchSongs(this.props.term);
+  }
+
   render() {
     return (
       <div>
@@ -20,3 +26,9 @@ export default class SongList extends Component {
     );
   }
 }
+
+function mapStateToProps(state) {
+  return { term: state.term };
+}
+
+export default connect(mapStateToProps, { fetchSongs })(SongList);
