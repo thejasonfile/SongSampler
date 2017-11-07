@@ -10,6 +10,13 @@ a:hover {
 .btn-default {
   background-color: rgb(30,215,96);
   color: rgb(25, 20, 20);
+  box-shadow: -4px 4px 0 rgb(2, 72, 5);
+}
+
+.btn-default:active {
+  position: relative;
+  right: 2px;
+  top: 2px;
 }
 
 /* TITLE */
@@ -33,14 +40,8 @@ a:hover {
 
 .btn-login {
   font-size: 2em;
-  box-shadow: -4px 4px 0 rgb(2, 72, 5);
 }
 
-.btn-login:active {
-  position: relative;
-  right: 2px;
-  top: 2px;
-}
 
 .disclaimer {
   margin-top: 2em;
