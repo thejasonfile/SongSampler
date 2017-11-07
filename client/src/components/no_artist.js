@@ -10,7 +10,7 @@ class NoArtist extends Component {
 
   render() {
     return (
-      <div>
+      <div className='alert alert-danger'>
         <h1>Please Choose an Artist</h1>
       </div>
     );

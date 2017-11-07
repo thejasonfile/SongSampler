@@ -19,6 +19,10 @@ a:hover {
   top: 2px;
 }
 
+.alert {
+  text-align: center;
+}
+
 /* TITLE */
 
 #title {
