@@ -10,37 +10,21 @@ import NoArtist from './no_artist';
 
 class App extends Component {
   componentWillMount() {
-    const user = this.props.getCurrentUser();
-    //this.renderRoutes(user);
+    this.props.getCurrentUser();
+    this.renderRoutes();
   }
-  //
-  // renderRoutes(user) {
-  //   debugger;
-  //   if (!user) {
-  //     return (
-  //       <BrowserRouter>
-  //         <div>
-  //           <Route path="/" component={Landing} />
-  //         </div>
-  //       </BrowserRouter>
-  //     )
-  //   } else {
-  //     return (
-  //       <BrowserRouter>
-  //         <div>
-  //           <Route exact path="/" component={Landing} />
-  //           <Route path="/search" component={SearchBar} />
-  //           <Route path="/search/results" component={SongList} />
-  //           <Route path="/search/noartist" component={NoArtist} />
-  //         </div>
-  //       </BrowserRouter>
-  //     )
-  //   }
-  // }
 
-  render() {
-    return (
-      <div>
+  renderRoutes() {
+    if (!this.props.user) {
+      return (
+        <BrowserRouter>
+          <div>
+            <Route path="/" component={Landing} />
+          </div>
+        </BrowserRouter>
+      )
+    } else {
+      return (
         <BrowserRouter>
           <div>
             <Route exact path="/" component={Landing} />
@@ -49,6 +33,14 @@ class App extends Component {
             <Route path="/search/noartist" component={NoArtist} />
           </div>
         </BrowserRouter>
+      )
+    }
+  }
+
+  render() {
+    return (
+      <div>
+        {this.renderRoutes()}
       </div>
     );
   }
