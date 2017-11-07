@@ -26,7 +26,6 @@ module.exports = app => {
 
     //get artist ID
     var url = `https://api.spotify.com/v1/search?q=${artistName}&type=artist`;
-    debugger;
     var spotifyResponse = await axios.get(url, { headers: { Authorization: 'Bearer ' + access_token }});
     const artistId = spotifyResponse.data.artists.items[0].id;
 
