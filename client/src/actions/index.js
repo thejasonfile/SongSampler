@@ -1,5 +1,11 @@
 import axios from 'axios';
 
+export const getCurrentUser = () => async dispatch => {
+  const user = await axios.get('/auth/current_user');
+
+  dispatch({ type: 'GET_CURRENT_USER', payload: user.data })
+}
+
 export const fetchSongs = artistName => async dispatch => {
   const songs = await axios.post('/api/spotify/artist', {artistName})
 

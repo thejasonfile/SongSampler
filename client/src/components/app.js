@@ -1,12 +1,17 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
+import { connect } from 'react-redux';
 
+import { getCurrentUser } from '../actions/index';
 import SearchBar from './search_bar';
 import SongList from './song_list';
 import Landing from './landing';
 import NoArtist from './no_artist';
 
-export default class App extends Component {
+class App extends Component {
+  componentWillMount(user) {
+    
+  }
   render() {
     return (
       <div>
@@ -22,3 +27,9 @@ export default class App extends Component {
     );
   }
 }
+
+function mapStateToProps(state) {
+  return { user: state.term };
+}
+
+export default connect(mapStateToProps, { getCurrentUser })(App);
