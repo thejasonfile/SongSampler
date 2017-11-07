@@ -8,7 +8,7 @@
   },
   "private": true,
   "proxy": {
-    "/auth/spotify": {
+    "/auth": {
       "target": "http://localhost:5000"
     },
     "/api": {

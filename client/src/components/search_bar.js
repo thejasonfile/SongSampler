@@ -17,7 +17,7 @@ class SearchBar extends Component {
 
   render() {
     return (
-      <div>
+      <div className="search-bar">
         <form className="form-inline">
           <div className="form-group">
             <label htmlFor="artist-search">Artist:</label>
@@ -40,6 +40,11 @@ class SearchBar extends Component {
               </Link>
           </div>
         </form>
+        <div className="logout-btn">
+          <a href="/api/logout">
+            <button className="btn btn-default">Logout</button>
+          </a>
+        </div>
       </div>
     );
   }

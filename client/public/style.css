@@ -7,6 +7,11 @@ a:hover {
   font-family: "Helvetica", "Arial", sans-serif;
 }
 
+.btn-default {
+  background-color: rgb(30,215,96);
+  color: rgb(25, 20, 20);
+}
+
 /* TITLE */
 
 #title {
@@ -43,10 +48,14 @@ a:hover {
 
 /* FORM */
 
-form {
+.search-bar {
   text-align: center;
-  margin-bottom: 1em;
   margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.form-inline {
+  display: inline;
 }
 
 .form-group > label,
@@ -55,16 +64,18 @@ form {
   font-size: 1.4em;
 }
 
-.btn-default {
-  background-color: rgb(30,215,96);
-  color: rgb(25, 20, 20);
+.logout-btn {
+  display: inline;
+  position: absolute;
+  right: 20px;
+  top: 21px;
 }
 
+/* TABLE */
 .table .table-header {
   font-size: 1.4em;
 }
 
-/* TABLE */
 .table .table-data {
   vertical-align: middle;
   font-size: 1.2em;
