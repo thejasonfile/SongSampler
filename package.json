@@ -11,7 +11,10 @@
     "start": "node index.js",
     "server": "nodemon index.js",
     "client": "(cd ./client && yarn start)",
-    "dev": "concurrently \"yarn server\" \"yarn client\""
+    "dev": "concurrently \"yarn server\" \"yarn client\"",
+    "client-install": "(cd ./client && yarn install)",
+    "client-build": "(cd ./client && yarn run build)",
+    "heroku-postbuild": "YARN_PRODUCTION=false yarn run client-install && yarn run client-build"
   },
   "dependencies": {
     "axios": "^0.17.0",
