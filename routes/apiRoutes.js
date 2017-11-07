@@ -11,7 +11,6 @@ module.exports = app => {
   app.get('/auth/spotify/callback',
     passport.authenticate('spotify'),
     (req, res) => {
-      console.log(res);
       res.redirect('/search')
     }
   );

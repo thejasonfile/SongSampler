@@ -7,7 +7,6 @@ export const fetchSongs = artistName => async dispatch => {
 };
 
 export const removeSongs = () => {
-  console.log('removeSongs called');
   return {
     type: 'REMOVE_SONGS',
     payload: []
