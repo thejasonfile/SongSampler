@@ -9,13 +9,13 @@ module.exports = app => {
   );
 
   app.get('/auth/spotify/callback',
-    passport.authenticate('spotify'),
-    (req, res) => {
-      res.redirect('/search')
-    }
+    passport.authenticate('spotify', {
+      successRedirect: '/search',
+      failureRedirect: '/'
+    })
   );
 
   app.get('/auth/current_user', (req, res) => {
     res.send(req.user);
-  })
+  });
 };
